@@ -1,0 +1,108 @@
+\section{Results}
+\subsection{Data Sets}
+All the data come from Dotabuff, which is the largest third-party Dota2 game track website.
+In the team section of Dotabuff, there are more than 1,000 teams sharing their game results.
+We write a crawler to collect our data by Python urllib2 and Beautifulsoup libraries.
+As Section II mentioned, to keep the balance of the data set, for one game, we generate two feature vectors.
+We will first generate one vector based on the original information provided in the website.
+Then we will swap the features of two teams to generate the second vector.
+We kept running the crawler for four days to collect data.
+
+Our data sets include 15,197 Dota2 matches records from top 100 famous teams in the world.
+Each row has 423 features including team ID, hero lineup and result.
+
+\subsection{Training and Testing}
+We use 10-fold cross-validation as our training and testing methods.
+The original data sets are randomly partitioned into 10 equal sized subsets, use one of the subsets as the test set and the others as the testing set.
+The process is to repeate 10 folds, with each subset used exactly once as the testing set.
+The results are the combined from 10 folds.
+
+
+\subsection{Evaluation Metrics}
+F-score is used as the evaluation metric our experiment, since both the precision and recall are considered by this method.
+F-score can be calculated by the following formulas.
+
+
+\begin{equation}
+F=2\times\frac{Precision+Recall}{Precision*Recall}
+\end{equation}
+
+\begin{equation}
+Precision = \frac{\#TruePositives}{\#TruePositives+\#FalsePositives}
+\end{equation}
+
+\begin{equation}
+Recall = \frac{\#TruePositives}{\#TruePositives+\#FalseNegatives}
+\end{equation}
+
+We also use Confusion Matrix to present our results.
+A sample form is described in Table~\ref{table:sample}.
+There are 200 samples in the testing data set.
+200 instances are classified correctly, and 100 instances are classified wrongly.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Predicted: True & Predicted: False & N = 200 \\ \hline
+100 & 50 & Actual: True \\ \hline
+50 & 100 & Actual: False \\ \hline
+\end{tabular}
+\caption{A Sample of Confusion Matrix}
+\label{table:sample}
+\end{center}
+\end{table}
+
+\subsection{Results}
+Due to 10-fold cross-validation, every instance in the data sets has been used as test cases.
+There are 15,197 samples in total.
+9,247 instances (60.8475\%) have been classified correctly, and 5,950 instances (39.1525\%) have been classified incorrectly.
+The accuracy by class and confusion matrix can be seen in Table~\ref{table:accuracy} and Table~\ref{table:matrix}.
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Class & Precision & Recall & F-score \\ \hline
+0 & 0.609 & 0.608 & 0.654 \\ \hline
+1 & 0.608 & 0.609 & 0.654 \\ \hline
+\end{tabular}
+\caption{Detailed Accuracy by Class}
+\label{table:accuracy}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+a & b & \\ \hline
+4,620 & 2,978 & a = 0 \\ \hline
+2,972 & 4,627 & b = 1 \\ \hline
+\end{tabular}
+\caption{Confusion Matrix}
+\label{table:matrix}
+\end{center}
+\end{table}
+
+\subsection{Results from Other Models}
+We also applied other models to the problem.
+ The results are shown in Table~\ref{table:others}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Model & F-score \\ \hline
+Logistic Regression & 54.08\% \\ \hline
+Natural Network & 59.51\% \\ \hline
+Support Vector Machine & 60.43\% \\ \hline
+Native Bayes & 58.92\% \\ \hline
+\end{tabular}
+\caption{Results from Other Models}
+\label{table:others}
+\end{center}
+\end{table}
+
+

@@ -1,0 +1,100 @@
+\section{Background}
+In this section, we first introduce Dota game.
+Then, we continue to introduce the meachine learning algorithms we want to test in this paper. 
+
+\subsection{Dota}
+In each dota game, there are two teams against each other.
+Each team consists of five players.
+Before starting the game, the players one by one choose one hero from the hero pool, which includes 111 heroes in total.
+Different heroes has different skills and play different roles in the team.
+The buildings in the game have health points.
+The final objective of Dota is to destory the enemy base, which means they want to make the enemy base's health points become 0. 
+
+Even though different heroes have different skills, we can always classify the heroes into four categories: Carry, Support, Ganker, and Initiator.
+
+\begin{itemize}
+\item \textbf{Carry:}
+These heroes play the core role in a team.
+They are the main attack output of a team.
+Usually, there are only one carry in a team.
+But sometimes, maybe another carry is picked up in case that the main carry cannot develop very well.
+However, at first, these heroes are not good at battle so they need some time to level up.
+They usually take over the game in the group battle at the end of a game.
+In most cases, all the behaviors of other heores in a team serve for the carry heroes.
+For example, other heroes always protect the carry's life and sometimes they choose to die instead of the carry hero.
+\item \textbf{Support:} 
+The heroes belonging to support, as its name, offers help and support to other heroes.
+They need spend much money to buy something useful for the whole team.
+For example, they always buy couriers and wards, which help the carry speedup the progression.
+The other example is they always buy the eyes to provide views so the team can take advantage before the group battle.
+They are very easily ignored because they are very easy to deaths. 
+However, they are very hard to play well because they need to keep themselves 
+safe and earn little money to support the whole team.
+\item \textbf{Ganker:}
+This kind of heroes are designed to start a quick regional battle and kill one or two enemies in a short time.
+They always have some speical skills and efficient high attack output in a short time.
+For example, they may have an invisible skill so when they suddenly appear,
+the opponent heroes do not have time to react before they die.
+Or they may have a very high attack output in 3 second so they can kill the enemies in sudden.
+The players who play gankers need to have a very good view of the game so
+they can find the best chance to attack the enemy heroes.
+Before the carry can join in the group battle,
+gankers need to organize the team and make the enemy heroes
+uncomfortable so they cannot farm easily.
+\item \textbf{Initiator:}
+An initiator is the hero who starts the group battle.
+They usually have some skills to make enemy heores dizzy and stun for a while.
+After they use the skills, other heores starts to enter the group battle.
+The timing is very important if you want to play initiators well.
+If you starts the group battle in a bad timing, then all your team maybe die.
+The role of initiator is very important so the players play initiator always
+have very high speed to press keyboard and very good smell of the group battle.
+\end{itemize}
+
+\subsection{Mainstream Meachine Learning Algorithms}
+
+\begin{itemize}
+\item \textbf{Decision Tree}
+A decision tree is a decision support tool that uses a tree-like graph.
+The goal of decison tree is achieve perfect classification with minimal number of decisions.
+In the training process, we pickup the most representative features from the feature vectors of the data.
+Once we generate the tree, we can easily get the prediciton from the decision tree.
+The decision tree is very easy to understand and implmement.
+After generating the decision tree, the running time of decision tree is very short,
+which means the decision tree is very fast to predict.
+However, if the data is very complex, the decision tree cannot get a very high accuracy.
+What's more, finding out the optimal decision tree is NP-hard problem.
+
+\item \textbf{Logistic Regression}
+In statistics, logistic regression is also called logit regression or logit model
+Logistic regression is a regression model where the dependent variable (DV) is categorical.
+Logistic regression measures the relationship between the categorical dependent variable and
+one or more independent variables by estimating probabilities using a logistic function,
+which is the cumulative logistic distribution.
+Logistic regression can be seen as a special case of the generalized linear model and thus analogous to linear regression. 
+Based on the input, logistic regression can return a linear regression, which can be used for classification.
+The output of logistic regression is 0 or 1, because the output of logistic regression is the output fo a logistic function.
+
+\item \textbf{Neural Network}
+The goal of the neural network is to solve problems in the same way like the human brain,
+although several neural networks are much more abstract.
+Neural network is inspired by the neural netowrk in biology.
+Neural network includes a lot of neurons connected by axons in different levels.
+Modern neural network projects typically work with a few thousand
+to a few million neural units and millions of connections,
+which is still several orders of magnitude less complex than the
+human brain and closer to the computing power of a worm.
+Deep learning is a kind of neural network with the advantage of current powerful computations 
+and several optimizations.
+
+\item \textbf{SVM}
+SVM is short for support vector machine.
+An SVM model is a representation of the examples as points in space,
+mapped so that the examples of the separate categories are divided
+by a clear gap that is as wide as possible.
+The most interesting part of SVM is kernel trick.
+SVMs can efficiently perform a non-linear classification using what is called the kernel trick,
+implicitly mapping their inputs into high-dimensional feature spaces.
+Different kernels can lead to different results.
+So, kernel is the most imporant for the performance of SVM.
+\end{itemize}

@@ -1,0 +1,48 @@
+\section{Introduction}
+
+ESports, also known as electronic sports, has become an official sport since the 21st century.
+The new technologies applied in the eSports are attractive to the young and old.
+The 3D graphic display, vivid sound effect, immersive experience, and the interesting operations make eSports more and more popular.
+According to a report~\cite{esports}, In 2013, it was estimated that approximately 71.5 million people worldwide watched eSports.
+
+Since eSports games are increasingly popular, the prediction of eSports game result has become increasingly significant.
+The estimation of game results can be used to train the professional players at ordinary times and modify the gamer’s tactic for the upcoming game.
+This estimation can also be used for media.
+In addition, the predictions of the game results can improve the entertainment for fans.
+
+Therefore, we decide to design and implement a prediction system based on machine learning technology for eSports games.
+In this paper, we focus on the one of the most popular eSports games is Dota.
+Dota is the short name for Defense of the Ancients.
+Dota~\cite{dotablog} is a free-to-play multiplayer online battle arena video game.
+Two five-player teams compete in the playing field, where each player chooses one from a total of 111 heroes to play.
+Millions of game players take part in Dota every day.
+With the highly-speed development of eSports, abundant and grand eSports competitions are organized globally every month, season, and year.
+Prize pool of millions of dollars is often provided by some competitions.
+
+Prior research 
+Conley et al.~\cite{conley2013does} did a research on which machine learning method is the best for data game results.
+However, they only focus on two machine learning approaches, linear regression and k-nearest neighbour(kNN).
+Kalyannaraman~\cite{kau2013win} did an augmented algorithm on traditional linear regression considering pair relationships of heroes.
+However, he did not consider all the relationship between heroes, like the restraint relationship between heroes.
+What's more, these two research did not test on large scale of data, which means not so reliable on their results.
+Drachen et al. ~\cite{drachen2014skill} try to predict the temporal and spatial of players in the game based on the hero skills.
+But the objective is different from ours. 
+
+Our goal is to predict the results of Dota Game.
+It means, given the specific two groups of heroes, we can give back the users the predicted outcome of the game.
+In this paper, the contributions include:
+
+\begin{itemize}
+\item We are the first one to consider the restraint relationship of heroes into the prediciton of Dota game result. 
+\item We are the first one to introduce the game lasting time as a feature vector in the prediction. 
+\item We abstract the Dota game prediction problem and applied different machine learning approaches.
+\item Through tuning the parameters in the machine learning approaches, we compare the performance among different algorithms. We also conclude the results and analyze the results.
+\end{itemize}
+
+The rest of the paper proceeds as follows.
+Section 2 introduces Dota and mainstream machine learning algorithms we try in this paper.
+Section 3 gives a brief introduction about the abstract of the problem and the goal.
+Then in the section 4, we talk about the design of our machine learning algorithms; also a detailed description of Decision Tree is given.
+In the section 5, we will describe our data sets, training and testing methods, evaluation metrics and results.
+Section 6 introduces some related papers.
+In the final section, we will analyze the results of the prediction.
