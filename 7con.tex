@@ -1,15 +1,15 @@
 \section{Conclusion}
-This paper proposes a method to predict the eSports game results of Dota.
+This paper proposes a method to predict the eSports game results of Dota. Our lineup model for DotA2 matches represents an attempt to condense gameplay to the key part to analyze the match result. 
 With three-type features (Team ID, Hero Lineup and Result) and decision tree model, our Dota prediction system gets 65.4\% F-score from a data set of 15,197 matches.
  
 The F-score is not relatively high and the reasons are as follows:
 \begin{enumerate}
 \item Concerning the data sets, we can only get the game records including the information of Team ID, Heroes Lineup and result.
-More detailed information about teams and games are not available.
+More detailed information about teams and games are not available. For eample, a team with higher skills plays and synergy among them would dominates in a match even if their opponent pick a superior lineup.
 
 \item Regarding features, player’s styles and skills, physical and emotional condition and the external environment all are vital to the result of a game, but none of them can be measured.
 
-\item DotA2 is a game of uncertainty with regards to the in game mechanism. Many elements in the map are generated randomly, such as type of runes, and Roshan Respouse time. Like poker games, luck can sometimes play an important role in determining the victory team of a match.
+\item DotA2 is a game of uncertainty with regards to the in game mechanism. Many elements in the map are generated randomly or pseudo-randomly, such as type of runes, and Roshan respawn time. Other than that, many heroes skills are also use random or pseudu-random coded.  Like poker games, luck can sometimes play an important role in E-Sports.
 
 \end{enumerate}
-
+Our results highlight that DotA is a game where many factors contributes to the matching result. In the future, we would like to include player's skill and style as part of the feature vector. An easier way is to assign weighted score to different E-sports teams. However, this approach's efficacy is narrowed because of team's fluidity and patch updates. Another way to improve the accuracy is to perform runtime analysis while game is playing and new data regarding the game information are retrieved. Both methods require scrutinizing and deep understanding the game mechanism.
