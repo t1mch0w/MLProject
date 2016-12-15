@@ -141,28 +141,22 @@ This feature is used to show how long the game lasts.
 
 \subsection{Algorithm Design}
 
-After attempts of several algorithms, such as Decision Tree, Logistic Regression, Natural Network and SVM, we select Decision Tree as our model.
+This problem is not only a simple estimation of electronic games, but also a prediction for human activities. In practical, lots of complex and versatile elements affect the result of a game. Plenty of immeasurable and unavoidable factors contribute to the results. For example, gamer's skills, physical and emotional conditions and the external environment, these all play important roles. However, these conditions are very difficult to quantified and modeled. Thus, to simplify this problem, our model will exclude these uncertain factors.
+In this section, we describe the algorithms that we used in developing our model, such as Decision Tree, Logistic Regression, Neural Network and SVM.
  
-
-XXX: We need more descriptions why we choose decision tree.
-
-
-Decision Tree is a tree-like model of decisions to analyze problems.
- The nature of a decision three is decision rules.
- A decision tree about discount is presented in Figure~\ref{fig:ctree}.
-
+\subsubsection{decision tree}
+Decision Tree is a method that use tree-like graph in which each internal node represents a "test" on an attribute. It is a non-parametric supervised learning method used for classification and regression. The nature of a decision three is decision rules.
+ A decision tree about discount is presented in Figure~\ref{fig:decisiontree}.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=8.0cm]{ctree.png} 
+\includegraphics[width=8.0cm]{decisiontree.PNG} 
 \newline
-\caption{An Example of C4.
-5 Decision Tree}
-\label{fig:ctree} 
+\caption{An Example of the Decision Tree}
+\label{fig:decisiontree} 
 \end{figure}
 
-We adopt C4.
-5 to generate a decision tree for the problem.
+
  The algorithm is proposed by Ross Quinlan~\cite{quinlan}, which is an extension of his earlier ID3 algorithm.
 
 The pseudocode~\cite{Kotsiantis} of the general algorithm for building decision trees by C4.
@@ -178,6 +172,54 @@ The pseudocode~\cite{Kotsiantis} of the general algorithm for building decision 
 \item Create a decision node that splits on a\_best.
 
 \item Recur on the sublists obtained by splitting on a\_best, and add those nodes as the children of the node.
+
+\text{}
+
+\subsubsection{Adaboost}
+Adaboost boosting works by combining several relatively
+weak and inaccurate classifiers to form a stronger classifier.
+In this case, the weak learning algorithm is decision stump,
+which consists of a one-level decision tree. Given the decision
+stump, train data set and the number of weak classifiers,
+k, the adaboost boosting algorithm will produce k weak classifiers
+with weights and then combine these weak classifier to
+form a stronger classifier based on weights.
+
+\subsubsection{logistic regressing}
+Logistic regression is a model that predicts a binary output using a weighted sum of predictor variables. We first trained a simple logistic regression model with an intercept term to
+predict the result of a match.
+
+The feature vector we used is described as:
+$$ $x_i$=
+\begin{cases}
+1& \text{if a radiant player played as the hero with id i}\\
+0& \text{otherwise}
+\end{cases}$$
+
+Also, the label is defined as:
+$$y=
+\begin{cases}
+1& \text{win the game}\\
+0& \text{lose the game}
+\end{cases}$$
+
+We divided 90\% of the matches from dataset to form a training set and the remaining 10\% of dataset to form a test set. As the training data becomes larger, the training and test accuracies are coming together closely. We select about 16000 instances as the optimal training set size. 
+
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=8.0cm]{margincurve.PNG} 
+\newline
+\caption{Margin Curve of Logistic Regression}
+\label{fig:margincurve} 
+\end{figure}
+
+This logistic regression model shows that the hero selection is very important to the result of a match. Assuming that all playes have the same game skills, we can predict the result of a set of heroes counter with another set heroes.
+However, this only considered the effect of hero set relationships. We also need to analyze the synergy and counter relationship between heroes, which is also a very important factor.
+
+\subsubsection{k-nearest neighbor}
+K-nearest neighbors is a non-parametric method for classification and regression that predicts objects’ class memberships based on the k-closest training examples in the feature space. We want to implement K-NN to model the relationship between heros.
+
 
 \end{enumerate}
 
