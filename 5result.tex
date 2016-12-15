@@ -135,7 +135,7 @@ In adaboost method, we used decision tree as a classifier of it. However, we did
 
 \subsection{K-nearest neighbor}
 
-We adopt K-nearest neighbor as we discussed in the design part. Correctly Classified Instances are 8576 which takes 75.1038 \%. And Incorrectly Classified Instances are 6198 which takes 24.8962 \%. The accuracy by class and confusion matrix can be seen in Table~\ref{table:knnaccuracy} and Table~\ref{table:knnconfusionmatrix}.
+We adopt K-nearest neighbor as we discussed in the design part. After training the synergic-counter pairs, we get the final result. Correctly Classified Instances are 8576 which takes 75.1038 \%. And Incorrectly Classified Instances are 6198 which takes 24.8962 \%. The accuracy by class and confusion matrix can be seen in Table~\ref{table:knnaccuracy} and Table~\ref{table:knnconfusionmatrix}.
 
 \begin{table}
 \begin{center}
@@ -163,8 +163,24 @@ a & b & \\ \hline
 \end{center}
 \end{table}
 
-From this result, we know that this modified method improved accuracy rate.
+From this result, we know that this modified method largely improved accuracy rate.
 
-First, query the heroes with frequency in the matches;
-Find first 30 heroes that appears most to set as clustering center k
-use k means clustering to partition the n observations into k (≤ n) sets
+\subsection{Comparison with Other Exisiting Algorithms}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Algorithm & Accuracy \\ \hline
+Our algorithm & 75.1\% \\ \hline 
+Kalyanaraman's & 74.1\% \\ \hline
+Conley's & 69.8\% \\ \hline
+\end{tabular}
+\caption{Performance Comparison}
+\label{table:comp}
+\end{table}
+
+In this subseciton, we simply show the performance comparion between our algorithm and other exisiting algorithms.
+The details can be seen in Table~\ref{table:comp}
+
+

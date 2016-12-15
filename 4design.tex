@@ -190,7 +190,7 @@ Logistic regression is a model that predicts a binary output using a weighted su
 predict the result of a match.
 
 The feature vector we used is described as:
-$$ $x_i$=
+$$ x_i=
 \begin{cases}
 1& \text{if a radiant player played as the hero with id i}\\
 0& \text{otherwise}
@@ -219,6 +219,18 @@ However, this only considered the effect of hero set relationships. We also need
 
 \subsubsection{k-nearest neighbor}
 K-nearest neighbors is a non-parametric method for classification and regression that predicts objects’ class memberships based on the k-closest training examples in the feature space. We want to implement K-NN to model the relationship between heros.
+
+To better interpret the relationships between heroes, we run an clustering algorithm to train the synergic and counter relationships. 
+
+\item We randomly select 10 heroes as clustering centers. 
+
+\item Run the K-means clustering algorithm to cluster all 111 heroes into 10 clusters. The distance matric is selected as Euclidean distance.
+
+\item For each clusters, select three nearest neighbors to set up new pairs of relationship.
+
+\item Thus, we get the new 30 pairs of relationships between heroes.
+
+Note that the initial centers are very important to the final clustering results. Also, the synergic relationship is trained by winning games in a same team in a game and the counter relationship is trained by losing games in different teams in a game.
 
 
 \end{enumerate}
