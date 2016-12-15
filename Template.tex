@@ -1,7 +1,8 @@
-\documentclass{article}
+%\documentclass{article}
+\documentclass[conference]{IEEEtran}
 
 \usepackage{url}
-\usepackage{spconf,amsmath,graphicx}
+\usepackage{amsmath,graphicx}
 \usepackage{amsmath}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{float}
@@ -20,22 +21,15 @@
 
 % ------
 \title{A Game Prediction Algorithm for Dota}
-%
-% Single address.
-
-% ---------------
-\name{Runzhou Cao, Xiaohu Zhao, Fang Zhou}
-\address{The Ohio State University}
-%
-% For example:
-% ------------
-%\address{School\\
-%	Department\\
-%	Address}
-%
-% Two addresses (uncomment and modify for two-address case).
-
-\begin{document}
+\author{
+    \begin{tabular}{ccc}
+    RunZhou Cao & Xiaohu Zhao & Fang Zhou
+    \end{tabular}  \\
+%    \hspace{1pc}~\\
+    \begin{tabular}{c}
+    Ohio State University\\
+    \end{tabular}
+}\begin{document}
 %\ninept
 %
 \maketitle
@@ -53,10 +47,6 @@ Last but not least, the data scale in our experiments is so large that the resul
 The results show our algorithm is both effective and efficient.
 
 \end{abstract}
-\begin{keywords}
-Machine Learning, Dota, eSports, Predition, Decision Tree.
-\end{keywords}
-%
 
 \input{1input.tex}
 \input{2back.tex}
