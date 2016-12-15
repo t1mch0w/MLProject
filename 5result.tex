@@ -1,15 +1,17 @@
-\section{Results}
-\subsection{Data Sets}
-All the data come from Dotabuff, which is the largest third-party Dota2 game track website.
+\section{Experiments}
+In this section, we will introduce the data collection, data sets, and how we conduct the experiments.
+\subsection{Data Collection}
+All the data comes from Dotabuff, which is the largest third-party Dota2 game track website.
 In the team section of Dotabuff, there are more than 1,000 teams sharing their game results.
-We write a crawler to collect our data by Python urllib2 and Beautifulsoup libraries.
-As Section II mentioned, to keep the balance of the data set, for one game, we generate two feature vectors.
-We will first generate one vector based on the original information provided in the website.
-Then we will swap the features of two teams to generate the second vector.
+We write a crawler to collect the game data by Python urllib2 and Beautifulsoup libraries.
+As Section IV mentioned, from each game, we can get the 111 hero usage, 30 synergic pairs of heroes usage,
+30 conter pairs of heroes usage, game running time, and the final result.
 We kept running the crawler for four days to collect data.
-
-Our data sets include 15,197 Dota2 matches records from top 100 famous teams in the world.
-Each row has 423 features including team ID, hero lineup and result.
+\subsection{Data Sets}
+Our data sets include 15,197 Dota2 matches records from top 100 win-rate teams in the world.
+Each feature vector includes 111 hero feature, 30 synergic pair feature, 30 conter pair feature,
+1 game time feature, and 1 game result feature.
+In total, there are 173 features in the feature vector.
 
 \subsection{Training and Testing}
 We use 10-fold cross-validation as our training and testing methods.
@@ -17,11 +19,14 @@ The original data sets are randomly partitioned into 10 equal sized subsets, u
 The process is to repeate 10 folds, with each subset used exactly once as the testing set.
 The results are the combined from 10 folds.
 
-
 \subsection{Evaluation Metrics}
 F-score is used as the evaluation metric our experiment, since both the precision and recall are considered by this method.
 F-score can be calculated by the following formulas.
 
+\subsection{Decision Tree}
+\subsection{Logistic Regression}
+\subsection{Neural Network}
+\subsection{SVM}
 
 \begin{equation}
 F=2\times\frac{Precision+Recall}{Precision*Recall}
@@ -104,5 +109,3 @@ Native Bayes & 58.92\% \\ \hline
 \label{table:others}
 \end{center}
 \end{table}
-
-
